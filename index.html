@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Estacionamento</title>
+    <!-- Vinculando o arquivo CSS externo -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <h1>Sistema de Estacionamento</h1>
+    
+    <div class="buttons-container">
+        <button onclick="openEntradaPopup()">Entrada</button>
+        <button onclick="openSaidaPopup()">Saída</button>
+    </div>
+    
+    <div id="entradaPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('entradaPopup')">&times;</span>
+            <h2>Registrar Entrada</h2>
+            <label for="placaEntrada">Placa do Carro:</label>
+            <input type="text" id="placaEntrada">
+            <label for="marcaEntrada">Marca do Carro:</label>
+            <select id="marcaEntrada">
+                <option value="chevrolet">Chevrolet</option>
+                <!-- Outras opções de marca aqui -->
+            </select>
+            <label for="modeloEntrada">Modelo do Carro:</label>
+            <input type="text" id="modeloEntrada">
+            <label for="corEntrada">Cor do Carro:</label>
+            <input type="text" id="corEntrada">
+            <button onclick="registrarEntrada()">Registrar</button>
+        </div>
+    </div>
+    
+    <div id="saidaPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('saidaPopup')">&times;</span>
+            <h2>Calcular Permanência</h2>
+            <label for="placaSaida">Placa do Carro:</label>
+            <input type="text" id="placaSaida">
+            <button onclick="calcularPermanencia()">Calcular</button>
+        </div>
+    </div>
+
+    <div id="imprimirPopup" class="popup">
+        <div class="popup-content imprimir">
+            <span class="close" onclick="closePopup('imprimirPopup')">&times;</span>
+            <h2>Cupom de Entrada</h2>
+            <div id="dadosVeiculoImprimirEntrada"></div>
+            <div id="horaEntradaImprimirEntrada"></div>
+            <button onclick="imprimirCupom('entrada')">Imprimir</button>
+        </div>
+    </div>
+
+    <div id="imprimirPopupSaida" class="popup">
+        <div class="popup-content imprimir">
+            <span class="close" onclick="closePopup('imprimirPopupSaida')">&times;</span>
+            <h2>Cupom de Saída</h2>
+            <div id="dadosVeiculoImprimirSaida"></div>
+            <div id="horaEntradaImprimirSaida"></div>
+            <button onclick="imprimirCupom('saida')">Imprimir</button>
+        </div>
+    </div>
+
+    <div class="menu-container">
+        <button onclick="openMenu()">Menu</button>
+        <div id="menu" class="menu-content">
+            <span class="close" onclick="closeMenu()">&times;</span>
+            <h3>Configurações</h3>
+            <label for="valorPrimeiraHora">Valor da Primeira Hora (R$):</label>
+            <input type="text" id="valorPrimeiraHora" placeholder="Digite o valor da primeira hora">
+            <label for="valorHoraAdicional">Valor da Hora Adicional (R$):</label>
+            <input type="text" id="valorHoraAdicional" placeholder="Digite o valor da hora adicional">
+            <button onclick="saveConfig()">Salvar</button>
+        </div>
+    </div>
+    
+    <script src="./js/script.js"></script>
+</body>
+</html>
